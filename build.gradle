@@ -15,9 +15,10 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.5.4'
-    implementation 'io.minio:minio:8.3.0'
+    implementation group: 'io.minio', name: 'minio', version: '8.3.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
     compileOnly 'org.projectlombok:lombok:1.18.20'
-    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.4'
 }
 
