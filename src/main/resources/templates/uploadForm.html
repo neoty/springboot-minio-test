@@ -8,25 +8,30 @@
 
 <form method="POST" enctype="multipart/form-data" action="/">
     <div>
+
         <table>
+
             <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
             <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
-        </table>
-    </div>
-    <div>
-        <h2 th:text="${message}"></h2>
-    </div>
-    <div>
-        <table border="1">
-            <th>objectName</th>
-            <th>download</th>
 
-            <tr th:each="object : ${objectNames}">
-                <td th:text="${object}"></td>
-                <td><button th:onclick="|location.href='/download'|">download</button></td>
-            </tr>
         </table>
+
     </div>
 </form>
+<div>
+    <h2 th:text="${message}"></h2>
+</div>
+<div>
+    <table border="1">
+        <th>objectName</th>
+        <th>download</th>
+
+        <tr th:each="object : ${objectNames}">
+            <td th:text="${object}"></td>
+<!--                <td><button onclick='location.href="/download[[${object}]]"' th:attr data-object="${object}">download</button></td>-->
+            <td><button th:data-o="${object}" onclick="location.href='/download?o='+this.getAttribute('data-o')">download</button></td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
